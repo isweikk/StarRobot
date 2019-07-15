@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <!-- landscape强制横屏；
+        不加任何旋转屏幕的处理代码的时候，旋转屏幕将会导致系统把当前activity关闭，重新打开，configChanges设置响应屏幕旋转
+        Activity在切换到后台或布局从横屏LANDSCAPE切换到PORTRAIT，会重新切换Activity会触发一次onCreate方法， 增加keyboardHidden可避免-->
+        <activity android:name=".MainActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
