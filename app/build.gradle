@@ -11,11 +11,34 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [ CHANNEL_VALUE:"weikk" ]    //构建多平台，声明CHANNEL_VALUE是可替换值的PlaceHolder，同时为其设置weikk默认值
+        flavorDimensions "versionCode"  //构建多平台，声明flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了
     }
+    signingConfigs {    //添加签名配置
+        myConfig{
+            storeFile file("weikk.keystore")
+            storePassword "gradle"
+            keyAlias "gradle"
+            keyPassword "gradle"
+        }
+    }
+    //构建多平台，同时编译出多个平台的apk文件，原理是Gradle的Manifest Merger，ProductFlavors其实就是可定义的product特性，两者配合编译
+    productFlavors {
+        weikk{}
+        wandoujia{}
+        xiaomi{}
+    }
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [ CHANNEL_VALUE:name ]
+    }
+
     buildTypes {    //编译项
         release {
-            minifyEnabled false
+            zipAlignEnabled false   //zipalign优化
+            shrinkResources false   //是否移除无用的resource文件
+            minifyEnabled false     //是否混淆代码
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig  signingConfigs.myConfig
         }
     }
 }
