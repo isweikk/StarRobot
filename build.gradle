@@ -2,7 +2,7 @@
 
 buildscript {   //设置脚本的运行环境
     repositories {  //支持java依赖库管理（maven/ivy等）,用于项目的依赖
-        //google()
+        google()
         jcenter()   //推荐使用这个仓库
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
     }
@@ -19,7 +19,7 @@ buildscript {   //设置脚本的运行环境
 //多项目的集中配置，多数构建工具，对于子项目的配置，都是基于继承的方式。Gradle除了提供继承方式设置子项目，还提供这种配置
 allprojects {
     repositories {
-        //google()
+        google()
         jcenter()
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
     }
