@@ -10,6 +10,10 @@ Gradle : v5.1.1
 MinVersion : Android 5.0  
 Use Androidx : Ture
 
+## Reference
+
+[BluetoothSPPLibrary](https://github.com/akexorcist/Android-BluetoothSPPLibrary)
+
 ## Update
 Newest : v1.0.0  
 [version](./version)
