@@ -20,13 +20,13 @@
             android:layout_weight="1"
             tools:ignore="MissingConstraints">
             <Button
-                android:id="@+id/button_switch_ble"
+                android:id="@+id/btnSwitchBle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="BLE connect" />
             <Button
-                android:id="@+id/button_switch_wifi"
+                android:id="@+id/btnSwitchWifi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -38,64 +38,24 @@
             android:orientation="horizontal"
             android:layout_weight="0.2"
             tools:ignore="MissingConstraints">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:ignore="MissingConstraints">
-                <ListView
-                    android:id="@+id/bleListDevices"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:smoothScrollbar="true" />
-
-                <Button
-                    android:id="@+id/bleButtonScan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:text="SCAN"
-                    android:textColor="#7A481B"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:ignore="MissingConstraints">
-                <TextView
-                    android:id="@+id/bleDeviceInfo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="#222222"
-                    android:textSize="@dimen/bluetooth_spp_text_size"
-                    android:padding="@dimen/bluetooth_spp_padding"
-                    android:text="Text" />
-
-                <Button
-                    android:id="@+id/bleButtonSend"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="50dp"
-                    android:text="Send"
-                    android:textColor="#7A481B"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/bleButtonConnect"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginRight="50dp"
-                    android:text="Connect"
-                    android:textColor="#7A481B"
-                    android:textStyle="bold" />
-            </RelativeLayout>
+            <Button
+                android:id="@+id/btnBleDevice"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:text="Device"
+                android:textColor="#7A481B"/>
+            <Button
+                android:id="@+id/btnBleSend"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:text="Send"
+                android:textColor="#7A481B"/>
         </LinearLayout>
     </LinearLayout>
 

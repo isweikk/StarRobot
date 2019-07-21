@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/layout_ble_list"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" >
+
+	<ListView
+		android:id="@+id/bleListView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:dividerHeight="1dip"
+		android:layout_weight="4"
+		android:listSelector="#00000000" >
+	</ListView>
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="2dip"
+		android:background="@color/colorPrimary"/>
+
+	<LinearLayout
+		android:id="@+id/llBox"
+		android:layout_width="match_parent"
+		android:layout_height="35dip" >
+
+		<Button
+			android:id="@+id/btnBleScan"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:text="Scan" />
+	</LinearLayout>
+</LinearLayout>
+

@@ -28,6 +28,11 @@
             android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden">
         </activity>
+        <activity android:name=".ble.bluetoothspp.DeviceList"
+            android:theme="@style/Theme.FloatActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|keyboardHidden">
+        </activity>
     </application>
 
 </manifest>

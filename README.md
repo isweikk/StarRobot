@@ -20,7 +20,9 @@ Newest : v1.0.0
 
 ## Tutorial
 
-[doc/tutorial...](doc/)
+- [doc/01.搭建基础工程、设计界面布局](doc/tutorial_01.md)
+- [doc/02.蓝牙设备搜索、连接、断开、状态处理](doc/tutorial_02.md)
+- 更新中...
 > I wrote down the development history and detailed the principles of the code.
 You know, I am a rookie. There may be some mistakes, please tell me. Thank you! 
 
@@ -40,7 +42,7 @@ Profession : Embedded software engineer(Linux)
 Industry   : AI, Robot, IOT  
 Email      : weikk90@163.com  
 
-> My Home - **[www.xweikk.com](http://www.xweikk.com:8080) (developing)**
+> My Home - **[www.xweikk.com](http://www.xweikk.com) (developing)**
 
 > More
 
