@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">StarRobot</string>
+
+    <!--  BluetoothChat -->
+    <string name="ble_msg_space">Message</string>
+    <string name="ble_msg_send">Send</string>
+    <string name="ble_notice_not_connected">No device connected</string>
+    <string name="ble_notice_not_enabled">BLE is unavailable,exit!</string>
+    <string name="ble_notice_connecting">Connecting...</string>
+    <string name="ble_notice_connected">Connected: </string>
+    <string name="ble_notice_no_connection">No connection</string>
+
+    <!--  DeviceConnect -->
+
+    <!-- Options Menu -->
+    <string name="menu_mode_ble">BLE mode</string>
+    <string name="menu_mode_wifi">WiFi mode</string>
+    <string name="menu_device">Device</string>
+
 </resources>

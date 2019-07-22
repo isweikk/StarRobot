@@ -35,27 +35,52 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="0.2"
+            android:orientation="vertical"
+            android:layout_weight="0.8"
             tools:ignore="MissingConstraints">
-            <Button
-                android:id="@+id/btnBleDevice"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
-                android:text="Device"
-                android:textColor="#7A481B"/>
-            <Button
-                android:id="@+id/btnBleSend"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
-                android:text="Send"
-                android:textColor="#7A481B"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                tools:ignore="MissingConstraints">
+                <Button
+                    android:id="@+id/btnBleDevice"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="Device"
+                    android:textColor="#7A481B"/>
+                <Button
+                    android:id="@+id/btnBleSend"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="Send"
+                    android:textColor="#7A481B"/>
+            </LinearLayout>
+            <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_weight="1" >-->
+            <!--<include layout="@layout/rocker"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:layout_alignParentLeft="true"-->
+                <!--/>-->
+            <!--</LinearLayout>-->
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="0.6"
+            tools:ignore="MissingConstraints">
         </LinearLayout>
     </LinearLayout>
 

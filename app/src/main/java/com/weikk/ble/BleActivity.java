@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -23,6 +24,8 @@ import com.weikk.ble.bluetoothspp.BluetoothSPP.BluetoothConnectionListener;
 import com.weikk.ble.bluetoothspp.BluetoothSPP.BluetoothStateListener;
 import com.weikk.ble.bluetoothspp.BluetoothState;
 import com.weikk.ble.bluetoothspp.DeviceList;
+import com.weikk.widget.OnRockerListener;
+import com.weikk.widget.RockerView;
 
 import java.util.ArrayList;
 
@@ -144,6 +147,18 @@ public class BleActivity extends Activity {
 //                }
 //            }
 //        });
+
+        /**
+         * Rocker摇杆事件处理
+         */
+//        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
+//                R.layout.rocker);
+        RockerView bleRocker = new RockerView(BleActivity.this);
+        //RockerView bleRocker = (RockerView) findViewById(R.id.Rocker);
+        bleRocker.setRockerListener(new rockerEven(){
+
+        });
+
     }
 
     public void onDestroy() {
@@ -234,5 +249,30 @@ public class BleActivity extends Activity {
                 alertDialog.dismiss();
             }
         });
+    }
+
+    //rocker
+    class rockerEven implements OnRockerListener {
+        byte[] value = new byte[1];
+
+        public void onRocker(int which) {
+            // TODO Auto-generated method stub
+            value[0] = (byte) which;
+            System.out.println(value[0] + "");
+            // Check that we're actually connected before trying anything
+            if (bt.getServiceState() != BluetoothState.STATE_CONNECTED) {
+//				Toast.makeText(BluetoothChat.this, R.string.not_connected,
+//						Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            bt.send(value, false);
+        }
+
+        public void onRocker(RockerView rockerView, int which) {
+            // TODO Auto-generated method stub
+
+        }
+
     }
 }
