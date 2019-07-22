@@ -2,7 +2,6 @@ package com.weikk.ble;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -19,18 +17,17 @@ import android.widget.Toast;
 import com.weikk.R;
 import com.weikk.ble.bluetoothspp.BluetoothSPP;
 import com.weikk.ble.bluetoothspp.BluetoothSPP.OnDataReceivedListener;
-import com.weikk.ble.bluetoothspp.BluetoothSPP.AutoConnectionListener;
 import com.weikk.ble.bluetoothspp.BluetoothSPP.BluetoothConnectionListener;
 import com.weikk.ble.bluetoothspp.BluetoothSPP.BluetoothStateListener;
 import com.weikk.ble.bluetoothspp.BluetoothState;
 import com.weikk.ble.bluetoothspp.DeviceList;
-import com.weikk.widget.OnRockerListener;
 import com.weikk.widget.RockerView;
 
 import java.util.ArrayList;
 
 public class BleActivity extends Activity {
     BluetoothSPP bt;
+    private RockerView rockerView;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,16 +146,10 @@ public class BleActivity extends Activity {
 //        });
 
         /**
-         * Rocker摇杆事件处理
+         * Rocker创建摇杆控件
          */
-//        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
-//                R.layout.rocker);
-        RockerView bleRocker = new RockerView(BleActivity.this);
-        //RockerView bleRocker = (RockerView) findViewById(R.id.Rocker);
-        bleRocker.setRockerListener(new rockerEven(){
-
-        });
-
+        rockerView = (RockerView) findViewById(R.id.rockerView);
+        rockerView.setRockerListener(new rockerEven());
     }
 
     public void onDestroy() {
@@ -173,7 +164,7 @@ public class BleActivity extends Activity {
         } else {
             if(!bt.isServiceAvailable()) {
                 bt.setupService();
-                bt.startService(BluetoothState.DEVICE_OTHER);
+                bt.startService(BluetoothState.DEVICE_OTHER);//非Android的蓝牙，要选择other，UUID会不同
                 setup();
             }
         }
@@ -233,7 +224,8 @@ public class BleActivity extends Activity {
         alertDialog = builder.create();
         alertDialog.show();
         /**
-         * 断开按钮
+         * 断开按钮，因为该按钮在dialog之中，必须要加上View对象layout，才能找到对应的接口
+         * 如果不写，会在父窗口查找接口，结果报错。
          */
         Button btnDisconnect = (Button)layout.findViewById(R.id.btnBleDisconnect);
         btnDisconnect.setOnClickListener(new OnClickListener() {
@@ -246,33 +238,101 @@ public class BleActivity extends Activity {
                             , "No connection yet."
                             , Toast.LENGTH_SHORT).show();
                 }
+                //点击自定义view的按钮，无法退出弹窗，需要加上关闭弹窗方法；用dialog类的方法生成按钮，则点击即可退出。
                 alertDialog.dismiss();
             }
         });
     }
 
     //rocker
-    class rockerEven implements OnRockerListener {
-        byte[] value = new byte[1];
+    class rockerEven implements com.weikk.widget.OnRockerListener {
 
-        public void onRocker(int which) {
-            // TODO Auto-generated method stub
-            value[0] = (byte) which;
-            System.out.println(value[0] + "");
+        public void reportPosition(float x, float y) {
+
+        }
+        public void onRocker(float angle, float level) {
             // Check that we're actually connected before trying anything
             if (bt.getServiceState() != BluetoothState.STATE_CONNECTED) {
 //				Toast.makeText(BluetoothChat.this, R.string.not_connected,
 //						Toast.LENGTH_SHORT).show();
                 return;
             }
-
+            byte[] value = new byte[1];
+            Direction direction = get8Direction(angle);
+            switch (direction) {
+                case DIRECTION_UP: value[0] = 0x1;break;
+                case DIRECTION_UP_RIGHT: value[0] = 0x2;break;
+                case DIRECTION_RIGHT: value[0] = 0x3;break;
+                case DIRECTION_DOWN_RIGHT: value[0] = 0x4;break;
+                case DIRECTION_DOWN: value[0] = 0x5;break;
+                case DIRECTION_DOWN_LEFT: value[0] = 0x6;break;
+                case DIRECTION_LEFT: value[0] = 0x7;break;
+                case DIRECTION_UP_LEFT: value[0] = 0x8;break;
+                default: value[0] = 0;break;
+            }
+            if (level == 0) {
+                value[0] = 0;
+            }
             bt.send(value, false);
         }
+    }
 
-        public void onRocker(RockerView rockerView, int which) {
-            // TODO Auto-generated method stub
+    // 360°平分8份的边缘角度
+    private static final double ANGLE_8D_OF_0P = 22.5;
+    private static final double ANGLE_8D_OF_1P = 67.5;
+    private static final double ANGLE_8D_OF_2P = 112.5;
+    private static final double ANGLE_8D_OF_3P = 157.5;
+    private static final double ANGLE_8D_OF_4P = 202.5;
+    private static final double ANGLE_8D_OF_5P = 247.5;
+    private static final double ANGLE_8D_OF_6P = 292.5;
+    private static final double ANGLE_8D_OF_7P = 337.5;
 
+    /**
+     * 方向
+     */
+    public enum Direction {
+        DIRECTION_LEFT, // 左
+        DIRECTION_RIGHT, // 右
+        DIRECTION_UP, // 上
+        DIRECTION_DOWN, // 下
+        DIRECTION_UP_LEFT, // 左上
+        DIRECTION_UP_RIGHT, // 右上
+        DIRECTION_DOWN_LEFT, // 左下
+        DIRECTION_DOWN_RIGHT, // 右下
+        DIRECTION_CENTER // 中间
+    }
+
+    /**
+     * 获取方向区域
+     * @param angle
+     * @return
+     */
+    private Direction get8Direction(float angle) {
+        if (0 <= angle && ANGLE_8D_OF_0P > angle || ANGLE_8D_OF_7P <= angle && 360 > angle) {
+            // 右
+            return Direction.DIRECTION_RIGHT;
+        } else if (ANGLE_8D_OF_0P <= angle && ANGLE_8D_OF_1P > angle) {
+            // 右下
+            return Direction.DIRECTION_DOWN_RIGHT;
+        } else if (ANGLE_8D_OF_1P <= angle && ANGLE_8D_OF_2P > angle) {
+            // 下
+            return Direction.DIRECTION_DOWN;
+        } else if (ANGLE_8D_OF_2P <= angle && ANGLE_8D_OF_3P > angle) {
+            // 左下
+            return Direction.DIRECTION_DOWN_LEFT;
+        } else if (ANGLE_8D_OF_3P <= angle && ANGLE_8D_OF_4P > angle) {
+            // 左
+            return Direction.DIRECTION_LEFT;
+        } else if (ANGLE_8D_OF_4P <= angle && ANGLE_8D_OF_5P > angle) {
+            // 左上
+            return Direction.DIRECTION_UP_LEFT;
+        } else if (ANGLE_8D_OF_5P <= angle && ANGLE_8D_OF_6P > angle) {
+            // 上
+            return Direction.DIRECTION_UP;
+        } else if (ANGLE_8D_OF_6P <= angle && ANGLE_8D_OF_7P > angle) {
+            // 右上
+            return Direction.DIRECTION_UP_RIGHT;
         }
-
+        return Direction.DIRECTION_CENTER;
     }
 }

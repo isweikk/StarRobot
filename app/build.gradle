@@ -9,7 +9,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = [ CHANNEL_VALUE:"weikk" ]    //构建多平台，声明CHANNEL_VALUE是可替换值的PlaceHolder，同时为其设置weikk默认值
         flavorDimensions "versionCode"  //构建多平台，声明flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了

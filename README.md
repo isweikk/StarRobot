@@ -15,13 +15,14 @@ Use Androidx : Ture
 [BluetoothSPPLibrary](https://github.com/akexorcist/Android-BluetoothSPPLibrary)
 
 ## Update
-Newest : v1.0.0  
+Newest : v1.1  
 [version](./version)
 
 ## Tutorial
 
 - [doc/01.搭建基础工程、设计界面布局](doc/tutorial_01.md)
 - [doc/02.蓝牙设备搜索、连接、断开、状态处理](doc/tutorial_02.md)
+- [doc/03.增加Rocker控件，通过Rocker控制方向](doc/tutorial_02.md)
 - 更新中...
 > I wrote down the development history and detailed the principles of the code.
 You know, I am a rookie. There may be some mistakes, please tell me. Thank you! 
