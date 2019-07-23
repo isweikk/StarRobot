@@ -40,22 +40,26 @@ public class GameActivity extends FragmentActivity implements View.OnClickListen
 
         initView();
         initEvent();
+        setTabSelecttion(1);
     }
 
     @Override
     public void onClick(View paramView) {
         switch (paramView.getId()){
             case R.id.tab01:
-                setTabSelecttion(0);
+                setTabSelecttion(1);
                 Logger.d("tab 01");
                 break;
             case R.id.tab02:
+                setTabSelecttion(2);
                 Logger.d("tab 02");
                 break;
             case R.id.tab03:
+                setTabSelecttion(3);
                 Logger.d("tab 03");
                 break;
             case R.id.tab04:
+                setTabSelecttion(4);
                 Logger.d("tab 04");
                 break;
         }
@@ -106,16 +110,51 @@ public class GameActivity extends FragmentActivity implements View.OnClickListen
         clearImageView();
         FragmentTransaction localFragmentTransaction = fragmentManager.beginTransaction();
         //hideFragments(localFragmentTransaction);
-        switch (paramInt) {
-            case 0:
-        }
         localFragmentTransaction.commit();
-        imageView01.setImageResource(R.drawable.tab_control_press);
-        if (frage_control == null) {
-            frage_control = new GameControl();
-            localFragmentTransaction.show(frage_control);
-        } else {
-            localFragmentTransaction.show(frage_control);
+
+        switch (paramInt) {
+            case 1:{
+                imageView01.setImageResource(R.drawable.tab_control_press);
+                if (frage_control == null) {
+                    frage_control = new GameControl();
+                    localFragmentTransaction.show(frage_control);
+                } else {
+                    localFragmentTransaction.show(frage_control);
+                }
+                break;
+            }
+            case 2:{
+                imageView02.setImageResource(R.drawable.tab_sensor_press);
+                if (frage_control == null) {
+                    frage_control = new GameControl();
+                    localFragmentTransaction.show(frage_control);
+                } else {
+                    localFragmentTransaction.show(frage_control);
+                }
+                break;
+            }
+            case 3:{
+                imageView03.setImageResource(R.drawable.tab_select_press);
+                if (frage_control == null) {
+                    frage_control = new GameControl();
+                    localFragmentTransaction.show(frage_control);
+                } else {
+                    localFragmentTransaction.show(frage_control);
+                }
+                break;
+            }
+            case 4:{
+                imageView04.setImageResource(R.drawable.tab_about_press);
+                if (frage_control == null) {
+                    frage_control = new GameControl();
+                    localFragmentTransaction.show(frage_control);
+                } else {
+                    localFragmentTransaction.show(frage_control);
+                }
+                break;
+            }
+
         }
+
     }
 }
