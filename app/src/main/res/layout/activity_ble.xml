@@ -51,8 +51,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="10dp"
-                    android:text="Device"
-                    android:textColor="#7A481B"/>
+                    android:text="Device" />
                 <Button
                     android:id="@+id/btnBleSend"
                     android:layout_width="100dp"
@@ -60,8 +59,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="10dp"
-                    android:text="Send"
-                    android:textColor="#7A481B"/>
+                    android:text="Send" />
             </LinearLayout>
             <LinearLayout
                     android:layout_width="match_parent"

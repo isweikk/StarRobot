@@ -9,7 +9,7 @@
 		android:id="@+id/ble_info"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:textColor="#003399"
+		android:textSize="@dimen/bluetooth_spp_text_size"
 		android:text="Device" />
 
 	<LinearLayout

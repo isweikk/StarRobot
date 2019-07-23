@@ -3,4 +3,32 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="window_bg">#ff4f4f4f</color>
+    <color name="rocker_bg">#ff4f4f4f</color>
+    <color name="button_text">#7A481B</color>
+
+    <color name="alertdialog_line">#c6c6c6</color>
+    <color name="actionsheet_blue">#037BFF</color>
+    <color name="actionsheet_red">#FD4A2E</color>
+    <color name="actionsheet_gray">#8F8F8F</color>
+
+    <color name="preview_bottom_toolbar_bg">#CC000000</color>
+    <color name="selected">#f5b935</color>
+    <color name="blockly_selected">#aa89db</color>
+    <color name="normal">#b3b5bc</color>
+    <color name="picture">#fff8cd59</color>
+    <color name="video">#ff4ec5fa</color>
+    <color name="normal_white">#f9f9f9</color>
+    <color name="search_normal">#a9a6a6</color>
+    <color name="item_normal">#f2f3f6</color>
+    <color name="search_pressed">#ffffff</color>
+    <color name="score_bg">#272727</color>
+    <color name="language_normal">#00fefdfa</color>
+    <color name="language_txt_normal">#1b1b1b</color>
+    <color name="active">#009688</color>
+    <color name="ucrop_color_default_dimmed">#8c000000</color>
+    <color name="ucrop_color_default_crop_frame">#ffffff</color>
+    <color name="ucrop_color_default_crop_grid">#80ffffff</color>
+
 </resources>

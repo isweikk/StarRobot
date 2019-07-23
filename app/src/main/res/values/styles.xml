@@ -4,11 +4,30 @@
     <style name="AppTheme" parent="android:Theme.Light.NoTitleBar.Fullscreen">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- 状态栏颜色 -->
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!--控制各个控件被选中时的颜色-->
         <item name="colorAccent">@color/colorAccent</item>
+        <!--保持屏幕常亮-->
         <item name="android:keepScreenOn">true</item>
         <item name="android:windowEnableSplitTouch">false</item>
         <item name="android:splitMotionEvents">false</item>
+
+        <!-- 窗口的背景颜色 -->
+        <item name="android:windowBackground">@color/window_bg</item>
+        <!--导航栏上的标题颜色-->
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <!--底部导航栏颜色-->
+        <item name="android:navigationBarColor">@android:color/holo_blue_dark</item>
+        <!--Button按钮样式-->
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
+        <!--EditText 输入框中字体的颜色-->
+        <item name="editTextColor">@android:color/white</item>
+    </style>
+
+    <style name="ButtonStyle" parent="@android:style/Widget.Button">
+        <!--<item name="android:background">@android:color/darker_gray</item>-->
+        <item name="android:textColor">@color/button_text</item>
     </style>
 
     <style name="myActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
@@ -20,7 +39,8 @@
         <!-- float_box为我们定义的窗口背景 ，这个不是必须的-->
         <item name="android:windowBackground">@drawable/float_box</item>
         <!--设置bar背景-->
-        <item name="android:actionBarStyle">@style/myActionBar</item>
+        <!--<item name="android:actionBarStyle">@style/myActionBar</item>-->
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
     </style>
 
 </resources>

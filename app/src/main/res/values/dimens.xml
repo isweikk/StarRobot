@@ -3,4 +3,7 @@
     <dimen name="bluetooth_spp_text_size">18sp</dimen>
     <dimen name="bluetooth_spp_padding">5dp</dimen>
 
+    <dimen name="rocker_bg_width">200dp</dimen>
+    <dimen name="rocker_bg_height">200dp</dimen>
+
 </resources>
