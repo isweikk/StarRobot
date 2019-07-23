@@ -11,27 +11,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         tools:ignore="MissingConstraints">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            tools:ignore="MissingConstraints">
-            <Button
-                android:id="@+id/btnSwitchBle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="BLE connect" />
-            <Button
-                android:id="@+id/btnSwitchWifi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="WiFi connect" />
-        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -46,18 +26,14 @@
                 tools:ignore="MissingConstraints">
                 <Button
                     android:id="@+id/btnBleDevice"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Device" />
                 <Button
                     android:id="@+id/btnBleSend"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:text="Send" />
             </LinearLayout>
@@ -65,7 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1" >
-                1<include layout="@layout/rocker"
+                <include layout="@layout/rocker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
