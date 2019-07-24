@@ -1,20 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="vertical" android:id="@+id/tab01" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="10.0dip" android:layout_weight="1.0">
-        <ImageView android:id="@+id/tabImage01" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/tab_control" />
-        <TextView android:textColor="@android:color/white" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="主控界面" />
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content" >
+        <Button
+            android:id="@+id/btnBack" android:background="@drawable/button_back0"
+            android:layout_width="wrap_content" android:layout_height="wrap_content" />
     </LinearLayout>
-    <LinearLayout android:orientation="vertical" android:id="@+id/tab02" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
-        <ImageView android:id="@+id/tabImage02" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/tab_sensor" />
-        <TextView android:textColor="@android:color/white" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="传感显示" />
+    <LinearLayout
+        android:id="@+id/tab01" android:orientation="vertical"
+        android:layout_width="fill_parent" android:layout_height="0.0dip"
+        android:layout_marginTop="0dip" android:layout_weight="1.0">
+        <ImageView
+            android:id="@+id/tabImage01"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:src="@drawable/tab_control" />
+        <TextView
+            android:textColor="@android:color/white" android:gravity="center"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="0dip" android:text="主控界面" />
     </LinearLayout>
-    <LinearLayout android:orientation="vertical" android:id="@+id/tab03" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
-        <ImageView android:id="@+id/tabImage03" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/tab_select" />
-        <TextView android:textColor="@android:color/white" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="模式选择" />
+    <LinearLayout
+        android:orientation="vertical" android:id="@+id/tab02"
+        android:layout_width="fill_parent" android:layout_height="0.0dip"
+        android:layout_weight="1.0">
+        <ImageView
+            android:id="@+id/tabImage02"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:src="@drawable/tab_sensor" />
+        <TextView
+            android:textColor="@android:color/white" android:gravity="center"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="0dip" android:text="传感显示" />
     </LinearLayout>
-    <LinearLayout android:orientation="vertical" android:id="@+id/tab04" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
-        <ImageView android:id="@+id/tabImage04" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/tab_about" />
-        <TextView android:textColor="@android:color/white" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="关于我们" />
+    <LinearLayout
+        android:orientation="vertical" android:id="@+id/tab03"
+        android:layout_width="fill_parent" android:layout_height="0.0dip"
+        android:layout_weight="1.0">
+        <ImageView
+            android:id="@+id/tabImage03"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:src="@drawable/tab_select" />
+        <TextView
+            android:textColor="@android:color/white" android:gravity="center"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="0dip" android:text="模式选择" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical" android:id="@+id/tab04"
+        android:layout_width="fill_parent" android:layout_height="0.0dip"
+        android:layout_weight="1.0">
+        <ImageView
+            android:id="@+id/tabImage04"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:src="@drawable/tab_about" />
+        <TextView
+            android:textColor="@android:color/white" android:gravity="center"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="0dip" android:text="关于我们" />
     </LinearLayout>
 </LinearLayout>

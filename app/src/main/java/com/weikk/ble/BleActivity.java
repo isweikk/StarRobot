@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -46,6 +47,17 @@ public class BleActivity extends Activity {
             public void onDataReceived(byte[] data, String message) {
                 Log.i("Check", "Length : " + data.length);
                 Log.i("Check", "Message : " + message);
+            }
+        });
+
+        /**
+         * 返回按钮
+         */
+        final Button btnBack = (Button)findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v){
+                finish();
             }
         });
 
@@ -194,6 +206,21 @@ public class BleActivity extends Activity {
             }
         });
 //        bt.autoConnect("IOIO"); //自动连接开启
+    }
+
+    /**
+     * 系统返回键响应，返回上一页面
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
+            finish();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     protected void getBleListDialog(){

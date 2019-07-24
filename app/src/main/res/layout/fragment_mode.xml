@@ -1,25 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="40.0dip" android:layout_weight="1.0">
-        <Button android:textColor="#ffffffff" android:id="@+id/buttonIRMode" android:background="@drawable/button_bg" android:layout_width="120.0dip" android:layout_height="75.0dip" android:layout_marginLeft="75.0dip" android:layout_marginTop="10.0dip" android:text="遥控模式" android:textAlignment="center" />
-        <Button android:textColor="#ffffffff" android:id="@+id/buttonFindLineMode" android:background="@drawable/button_bg" android:layout_width="120.0dip" android:layout_height="75.0dip" android:layout_marginLeft="55.0dip" android:layout_marginTop="10.0dip" android:text="巡线模式" android:textAlignment="center" />
-        <Button android:textColor="#ffffffff" android:id="@+id/buttonAvoidMode" android:background="@drawable/button_bg" android:layout_width="120.0dip" android:layout_height="75.0dip" android:layout_marginLeft="55.0dip" android:layout_marginTop="10.0dip" android:text="避障模式" android:textAlignment="center" />
+<LinearLayout
+    android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent" android:layout_height="0.0dip"
+        android:layout_marginTop="40.0dip" android:layout_weight="1.0">
+        <Button
+            android:id="@+id/buttonIRMode" android:background="@drawable/button_bg"
+            android:layout_width="120.0dip" android:layout_height="75.0dip"
+            android:layout_marginLeft="75.0dip" android:layout_marginTop="10.0dip"
+            android:textColor="@android:color/white" android:text="遥控模式"
+            android:textAlignment="center" />
+        <Button
+            android:id="@+id/buttonFindLineMode" android:background="@drawable/button_bg"
+            android:layout_width="120.0dip" android:layout_height="75.0dip"
+            android:layout_marginLeft="55.0dip" android:layout_marginTop="10.0dip"
+            android:textColor="@android:color/white" android:text="巡线模式"
+            android:textAlignment="center" />
+        <Button
+            android:id="@+id/buttonAvoidMode" android:background="@drawable/button_bg"
+            android:layout_width="120.0dip" android:layout_height="75.0dip"
+            android:layout_marginLeft="55.0dip" android:layout_marginTop="10.0dip"
+            android:textColor="@android:color/white" android:text="避障模式"
+            android:textAlignment="center" />
     </LinearLayout>
-    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="0.0dip" android:layout_weight="1.0">
-        <Button android:textColor="#ffffffff" android:id="@+id/buttonColorMode" android:background="@drawable/button_bg" android:layout_width="120.0dip" android:layout_height="75.0dip" android:layout_marginLeft="75.0dip" android:layout_marginTop="20.0dip" android:text="七彩探照" android:textAlignment="center" />
-        <Button android:textColor="#ffffffff" android:id="@+id/buttonLightSeekMode" android:background="@drawable/button_bg" android:layout_width="120.0dip" android:layout_height="75.0dip" android:layout_marginLeft="55.0dip" android:layout_marginTop="20.0dip" android:text="寻光模式" android:textAlignment="center" />
-        <Button android:textColor="#ffffffff" android:id="@+id/buttonTrackingMode" android:background="@drawable/button_bg" android:layout_width="120.0dip" android:layout_height="75.0dip" android:layout_marginLeft="55.0dip" android:layout_marginTop="20.0dip" android:text="跟随模式" android:textAlignment="center" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent" android:layout_height="0.0dip"
+        android:layout_marginTop="0.0dip" android:layout_weight="1.0">
+        <Button
+            android:id="@+id/buttonColorMode" android:background="@drawable/button_bg"
+            android:layout_width="120.0dip" android:layout_height="75.0dip"
+            android:layout_marginLeft="75.0dip" android:layout_marginTop="20.0dip"
+            android:textColor="@android:color/white" android:text="七彩探照"
+            android:textAlignment="center" />
+        <Button
+            android:id="@+id/buttonLightSeekMode" android:background="@drawable/button_bg"
+            android:layout_width="120.0dip" android:layout_height="75.0dip"
+            android:layout_marginLeft="55.0dip" android:layout_marginTop="20.0dip"
+            android:textColor="@android:color/white" android:text="寻光模式"
+            android:textAlignment="center" />
+        <Button
+            android:id="@+id/buttonTrackingMode" android:background="@drawable/button_bg"
+            android:layout_width="120.0dip" android:layout_height="75.0dip"
+            android:layout_marginLeft="55.0dip" android:layout_marginTop="20.0dip"
+            android:textColor="@android:color/white" android:text="跟随模式"
+            android:textAlignment="center" />
     </LinearLayout>
-    <LinearLayout android:orientation="horizontal" android:background="@drawable/whitebox" android:layout_width="520.0dip" android:layout_height="0.0dip" android:layout_marginLeft="15.0dip" android:layout_marginTop="20.0dip" android:layout_weight="0.9">
-        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip" android:layout_marginTop="0.0dip" android:layout_weight="0.3">
-            <TextView android:textColor="#ff00ff00" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginLeft="0.0dip" android:layout_marginTop="13.0dip" android:text="树莓派视频：" android:layout_weight="1.0" />
-            <TextView android:textColor="#ff00ff00" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginLeft="0.0dip" android:layout_marginTop="10.0dip" android:text="树莓派端口：" android:layout_weight="1.0" />
+    <LinearLayout
+        android:orientation="horizontal" android:background="@drawable/whitebox"
+        android:layout_width="520.0dip" android:layout_height="0.0dip"
+        android:layout_marginLeft="15.0dip" android:layout_marginTop="20.0dip" android:layout_weight="0.9">
+        <LinearLayout
+            android:orientation="vertical" android:layout_weight="0.3"
+            android:layout_width="0.0dip" android:layout_height="fill_parent"
+            android:layout_marginLeft="5.0dip" android:layout_marginTop="0.0dip" >
+            <TextView
+                android:layout_width="fill_parent" android:layout_height="0.0dip"
+                android:layout_marginLeft="0.0dip" android:layout_marginTop="13.0dip"
+                android:textColor="#ff00ff00" android:text="树莓派视频：" android:layout_weight="1.0" />
+            <TextView
+                android:layout_width="fill_parent" android:layout_height="0.0dip"
+                android:layout_marginLeft="0.0dip" android:layout_marginTop="10.0dip"
+                android:textColor="#ff00ff00" android:text="树莓派端口：" android:layout_weight="1.0" />
         </LinearLayout>
-        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="0.0dip" android:layout_marginTop="0.0dip" android:layout_weight="0.9">
-            <EditText android:textColor="#ffff0000" android:id="@+id/editTextIP" android:background="@drawable/whitebox" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="0.0dip" android:text="http://192.168.0.1:8080/?action=snapshot" android:ems="10" android:layout_weight="3.0" android:inputType="textUri" />
-            <EditText android:textColor="#ffff0000" android:id="@+id/editTextIPPort" android:background="@drawable/whitebox" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="2.0dip" android:text="8888" android:ems="10" android:layout_weight="3.0" android:inputType="phone" />
+        <LinearLayout
+            android:orientation="vertical" android:layout_weight="0.9"
+            android:layout_width="0.0dip" android:layout_height="fill_parent"
+            android:layout_marginLeft="0.0dip" android:layout_marginTop="0.0dip">
+            <EditText
+                android:id="@+id/editTextIP" android:background="@drawable/whitebox"
+                android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:layout_marginTop="0.0dip" android:text="http://192.168.0.1:8080/?action=snapshot"
+                android:ems="10" android:layout_weight="3.0"
+                android:textColor="#ff00ff00" android:inputType="textUri" />
+            <EditText
+                android:id="@+id/editTextIPPort" android:background="@drawable/whitebox"
+                android:layout_width="fill_parent" android:layout_height="fill_parent"
+                android:layout_marginTop="2.0dip" android:text="8888"
+                android:ems="10" android:layout_weight="3.0"
+                android:textColor="#ff00ff00" android:inputType="phone" />
         </LinearLayout>
-        <Button android:textColor="#ffffffff" android:id="@+id/buttonPiMode" android:background="@drawable/button_bg" android:layout_width="110.0dip" android:layout_height="75.0dip" android:layout_marginLeft="15.0dip" android:layout_marginTop="0.0dip" android:layout_marginRight="5.0dip" android:text="树莓派视频" android:textAlignment="center" />
+        <Button
+            android:id="@+id/buttonPiMode" android:background="@drawable/button_bg"
+            android:layout_width="110.0dip" android:layout_height="75.0dip"
+            android:layout_marginLeft="15.0dip" android:layout_marginTop="10.0dip"
+            android:textColor="@android:color/white" android:text="树莓派视频"
+            android:textAlignment="center" />
     </LinearLayout>
 </LinearLayout>

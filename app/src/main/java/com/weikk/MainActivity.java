@@ -3,16 +3,16 @@ package com.weikk;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.weikk.ble.BleActivity;
-import com.weikk.ble.bluetoothspp.BluetoothState;
-import com.weikk.ble.bluetoothspp.DeviceList;
-import com.weikk.game.GameActivity;
+import com.weikk.center.CenterActivity;
 
 public class MainActivity extends Activity {
+    private long exitTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,6 @@ public class MainActivity extends Activity {
             public void onClick(View v){
                 Intent intent = new Intent(MainActivity.this, BleActivity.class);
                 MainActivity.this.startActivity(intent);
-                MainActivity.this.finish();
             }
         });
 
@@ -39,11 +38,31 @@ public class MainActivity extends Activity {
         btnSwitchWifi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, GameActivity.class);
+                Intent intent = new Intent(MainActivity.this, CenterActivity.class);
                 MainActivity.this.startActivity(intent);
-                MainActivity.this.finish();
             }
         });
+    }
+
+    /**
+     * 返回键响应，2秒内点击两次返回，退出程序
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
+            if((System.currentTimeMillis() - exitTime) > 2000){
+                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override

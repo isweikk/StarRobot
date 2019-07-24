@@ -25,16 +25,22 @@
                 android:layout_weight="2"
                 tools:ignore="MissingConstraints">
                 <Button
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_back0"
+                    android:layout_marginLeft="5dp" />
+                <Button
                     android:id="@+id/btnBleDevice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:text="Device" />
                 <Button
                     android:id="@+id/btnBleSend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="5dp"
                     android:text="Send" />
             </LinearLayout>
             <LinearLayout

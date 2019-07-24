@@ -28,7 +28,7 @@
             android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden">
         </activity>
-        <activity android:name=".game.GameActivity"
+        <activity android:name=".center.CenterActivity"
             android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden">
         </activity>

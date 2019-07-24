@@ -1,10 +1,10 @@
-package com.weikk.game;
+package com.weikk.center;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -12,12 +12,10 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.weikk.MainActivity;
 import com.weikk.R;
-import com.weikk.ble.BleActivity;
 import com.weikk.utils.Logger;
 
-public class GameActivity extends FragmentActivity implements View.OnClickListener{
+public class CenterActivity extends FragmentActivity implements View.OnClickListener{
     private ImageView imageView01;
     private ImageView imageView02;
     private ImageView imageView03;
@@ -29,7 +27,9 @@ public class GameActivity extends FragmentActivity implements View.OnClickListen
     private LinearLayout layoutTabAbout;
 
     private FragmentManager fragmentManager = null;
-    private GameControl frage_control = null;
+    private ControlFragment frage_control = null;
+    private ModeSelectFragment frage_mode = null;
+    private SensorFragment frage_sensor = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,19 +48,15 @@ public class GameActivity extends FragmentActivity implements View.OnClickListen
         switch (paramView.getId()){
             case R.id.tab01:
                 setTabSelecttion(1);
-                Logger.d("tab 01");
                 break;
             case R.id.tab02:
                 setTabSelecttion(2);
-                Logger.d("tab 02");
                 break;
             case R.id.tab03:
                 setTabSelecttion(3);
-                Logger.d("tab 03");
                 break;
             case R.id.tab04:
                 setTabSelecttion(4);
-                Logger.d("tab 04");
                 break;
         }
     }
@@ -69,6 +65,28 @@ public class GameActivity extends FragmentActivity implements View.OnClickListen
     protected void onResume() {
         super.onResume();
     }
+
+    /**
+     * 系统返回键响应，返回上一页面
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
+//            Intent intent = new Intent(Intent.ACTION_MAIN);   //返回主页，但是AndroidManifest.xml中设置了filter过滤该命令
+//            intent.addCategory(Intent.CATEGORY_LAUNCHER);
+//            startActivity(intent);
+            finish();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    /**
+     *
+     */
 
     private void initView() {
         layoutTabControl = (LinearLayout) findViewById(R.id.tab01);
@@ -93,6 +111,16 @@ public class GameActivity extends FragmentActivity implements View.OnClickListen
         layoutTabSensor.setOnClickListener(this);
         layoutTabSelect.setOnClickListener(this);
         layoutTabAbout.setOnClickListener(this);
+        /**
+         * 返回按钮
+         */
+        final Button btnBack = (Button)findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                finish();
+            }
+        });
     }
 
 //    private void hideFragments(FragmentTransaction paramFragmentTransaction) {
@@ -110,51 +138,49 @@ public class GameActivity extends FragmentActivity implements View.OnClickListen
         clearImageView();
         FragmentTransaction localFragmentTransaction = fragmentManager.beginTransaction();
         //hideFragments(localFragmentTransaction);
-        localFragmentTransaction.commit();
 
         switch (paramInt) {
             case 1:{
                 imageView01.setImageResource(R.drawable.tab_control_press);
                 if (frage_control == null) {
-                    frage_control = new GameControl();
-                    localFragmentTransaction.show(frage_control);
+                    frage_control = new ControlFragment();
+                    localFragmentTransaction.replace(R.id.fragment_ui, frage_control);
                 } else {
-                    localFragmentTransaction.show(frage_control);
+                    localFragmentTransaction.replace(R.id.fragment_ui, frage_control);
                 }
                 break;
             }
             case 2:{
                 imageView02.setImageResource(R.drawable.tab_sensor_press);
-                if (frage_control == null) {
-                    frage_control = new GameControl();
-                    localFragmentTransaction.show(frage_control);
+                if (frage_sensor == null) {
+                    frage_sensor = new SensorFragment();
+                    localFragmentTransaction.replace(R.id.fragment_ui, frage_sensor);
                 } else {
-                    localFragmentTransaction.show(frage_control);
+                    localFragmentTransaction.replace(R.id.fragment_ui, frage_sensor);
                 }
                 break;
             }
             case 3:{
                 imageView03.setImageResource(R.drawable.tab_select_press);
-                if (frage_control == null) {
-                    frage_control = new GameControl();
-                    localFragmentTransaction.show(frage_control);
+                if (frage_mode == null) {
+                    frage_mode = new ModeSelectFragment();
+                    localFragmentTransaction.replace(R.id.fragment_ui, frage_mode);
                 } else {
-                    localFragmentTransaction.show(frage_control);
+                    localFragmentTransaction.replace(R.id.fragment_ui, frage_mode);
                 }
                 break;
             }
             case 4:{
                 imageView04.setImageResource(R.drawable.tab_about_press);
                 if (frage_control == null) {
-                    frage_control = new GameControl();
+                    frage_control = new ControlFragment();
                     localFragmentTransaction.show(frage_control);
                 } else {
                     localFragmentTransaction.show(frage_control);
                 }
                 break;
             }
-
         }
-
+        localFragmentTransaction.commit();
     }
 }
