@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.weikk.R;
-import com.weikk.utils.Logger;
 
 public class CenterActivity extends FragmentActivity implements View.OnClickListener{
     private ImageView imageView01;
@@ -34,7 +33,7 @@ public class CenterActivity extends FragmentActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        setContentView(R.layout.activity_center);
 
         fragmentManager = getSupportFragmentManager();
 
