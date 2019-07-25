@@ -1,8 +1,8 @@
 # StarRobot
 Android APP
 - The project is a robot controller named StarRobot.
-- It is using for controlling the robot with BLE or WiFi.
-
+- It is using for controlling the robot with BLE or WiFi.  
+![avatar](doc/assets/func_diagram.jpg)
 ## Environment
 
 Android Studio: v3.4.2  
